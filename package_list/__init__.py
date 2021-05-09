@@ -12,7 +12,7 @@ __version__ = importlib_metadata.version(__name__)
 
 __all__ = ["get_python_files", "find_python_packages"]
 
-IMPORT_PATTERNS = [r"from (\w+)", r"^import (\w+)"]
+IMPORT_PATTERNS = [r"^from (\w+)", r"^import (\w+)"]
 
 
 def get_python_files(dir: Path) -> List[str]:
