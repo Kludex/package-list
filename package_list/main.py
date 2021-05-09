@@ -10,7 +10,9 @@ app = Typer(add_completion=False)
 
 
 @app.command()
-def list_packages(path: Optional[Path] = Argument(None, exists=True)):
+def list_packages(
+    path: Optional[Path] = Argument(None, exists=True), include_std: bool = False
+):
     if path is None:
-        path = Path(os.path.abspath(__file__))
-    echo(find_python_packages(path))
+        path = Path(os.getcwd())
+    echo(find_python_packages(path, include_std))

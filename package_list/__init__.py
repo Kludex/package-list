@@ -1,7 +1,11 @@
 import os
 import re
+import sys
 from pathlib import Path
+from platform import python_version
 from typing import List
+
+from stdlib_list import stdlib_list
 
 __version__ = "0.1.0"
 
@@ -37,7 +41,13 @@ def _find_python_packages_in_dir(dir: Path) -> List[str]:
     return list(set(packages))
 
 
-def find_python_packages(path: Path) -> List[str]:
+def find_python_packages(path: Path, include_std: bool = False) -> List[str]:
     if path.is_file():
-        return _find_python_packages_in_file(path)
-    return _find_python_packages_in_dir(path)
+        packages = _find_python_packages_in_file(path)
+    else:
+        packages = _find_python_packages_in_dir(path)
+    packages.sort()
+    if include_std:
+        return packages
+    python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
+    return [pkg for pkg in packages if pkg not in stdlib_list(python_version)]
