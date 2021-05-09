@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "package-list"
-version = "0.2.0"
+version = "0.2.1"
 description = "An awesome package is coming soon! 🎉"
 authors = ["Marcelo Trylesinski <marcelotryle@gmail.com>"]
 license = "MIT"
