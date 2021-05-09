@@ -1,3 +1,4 @@
+import importlib.metadata as importlib_metadata
 import os
 import re
 import sys
@@ -7,7 +8,7 @@ from typing import List
 
 from stdlib_list import stdlib_list
 
-__version__ = "0.1.0"
+__version__ = importlib_metadata.version(__name__)
 
 __all__ = ["get_python_files", "find_python_packages"]
 

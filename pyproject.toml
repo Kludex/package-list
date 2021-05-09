@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "package-list"
-version = "0.1.0"
+version = "0.2.0"
 description = "An awesome package is coming soon! 🎉"
 authors = ["Marcelo Trylesinski <marcelotryle@gmail.com>"]
 license = "MIT"
@@ -27,6 +27,7 @@ package-list = "package_list.main:app"
 [tool.poetry.dependencies]
 python = "^3.8"
 typer = "^0.3.2"
+stdlib-list = "^0.8.0"
 
 [tool.poetry.dev-dependencies]
 autoflake = "^1.4"
